@@ -70,10 +70,25 @@ class OutfitteryHomePage(BasePage):
         """Click 'Get Started' CTA button"""
         self.page.locator(self.GET_STARTED_BUTTON).first.click()
     
-    def scroll_to_footer(self):
-        """Scroll to page footer"""
-        self.page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-        self.page.wait_for_timeout(500)
+    def scroll_to_footer(self, smooth=False):
+        """Scroll to page footer
+        
+        Args:
+            smooth: If True, scrolls with smooth animation (slower but visible)
+        """
+        if smooth:
+            # Smooth scroll for demos/debugging
+            self.page.evaluate("""
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            """)
+            self.page.wait_for_timeout(2000)  # Wait to see animation
+        else:
+            # Instant scroll for fast tests
+            self.page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+            self.page.wait_for_timeout(500)
     
     def get_page_language(self) -> str:
         """Get the page language from html tag"""

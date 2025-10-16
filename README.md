@@ -6,6 +6,18 @@ A **professional, production-ready** Playwright (Python) test automation framewo
 [![Playwright](https://img.shields.io/badge/Playwright-Python-success)](https://playwright.dev/python/)
 [![CI](https://github.com/djuanze/playwright-python-web-template/actions/workflows/ci.yml/badge.svg)](https://github.com/djuanze/playwright-python-web-template/actions)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
+[![Bug Detection](https://img.shields.io/badge/bug%20detection-100%25-success)](https://github.com/djuanze/test-ecommerce-site)
+
+## 🔥 **Unique Feature: Validated Test Framework**
+
+This framework includes **test validation** with proven 100% bug detection rate:
+- ✅ **50+ tests** across multiple sites
+- ✅ **Real production testing** (Outfittery.com - 11 tests passing)
+- ✅ **Custom test site** ([TestShop](https://github.com/djuanze/test-ecommerce-site) - 20 tests)
+- ✅ **Bug validation system** - 7 intentional bugs, 100% detection
+- ✅ **Evidence collection** - Auto-screenshots on failure
+
+**This isn't just a template - it's a proven, working framework with real examples!**
 
 ---
 
