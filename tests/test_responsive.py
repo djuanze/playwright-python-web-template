@@ -12,6 +12,7 @@ def test_mobile_viewport(page, base_url):
     
     # Verify page loads on mobile
     assert page.title() != ""
+    assert "Example Domain" in page.title()
 
 
 @pytest.mark.mobile
@@ -23,6 +24,7 @@ def test_tablet_viewport(page, base_url):
     
     # Verify page loads on tablet
     assert page.title() != ""
+    assert "Example Domain" in page.title()
 
 
 @pytest.mark.mobile
@@ -34,6 +36,7 @@ def test_desktop_viewport(page, base_url):
     
     # Verify page loads on desktop
     assert page.title() != ""
+    assert "Example Domain" in page.title()
 
 
 @pytest.mark.mobile
@@ -43,12 +46,11 @@ def test_responsive_elements(page, base_url):
     
     # Desktop view
     page.set_viewport_size({"width": 1920, "height": 1080})
-    page.wait_for_load_state("networkidle")
+    page.wait_for_load_state("domcontentloaded")
     
     # Mobile view
     page.set_viewport_size({"width": 375, "height": 667})
-    page.wait_for_load_state("networkidle")
+    page.wait_for_load_state("domcontentloaded")
     
     # Page should still be functional
     assert page.locator("body").is_visible()
-
