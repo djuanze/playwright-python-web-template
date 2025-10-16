@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+
+# Playwright
+test-results/
+playwright-report/
+videos/
+screenshots/
+traces/
+downloads/
+
+# pytest
+.pytest_cache/
+report.html
+assets/
+*.log
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Reports
+reports/
+*.html
+*.xml
+*.json
+allure-results/
+allure-report/
+

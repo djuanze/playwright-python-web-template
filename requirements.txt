@@ -4,3 +4,8 @@ playwright==1.48.0
 pytest-html==4.1.1
 python-dotenv==1.0.1
 
+# Optional dependencies (uncomment if needed)
+# pytest-xdist==3.5.0           # For parallel test execution
+# pytest-timeout==2.2.0          # For test timeouts
+# allure-pytest==2.13.2          # For Allure reporting
+# pytest-rerunfailures==13.0     # For retrying flaky tests
