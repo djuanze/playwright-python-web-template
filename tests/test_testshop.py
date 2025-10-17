@@ -198,6 +198,14 @@ def test_remove_item_from_cart(page):
     
     # Verify item removed (this may fail due to a bug in TestShop)
     items_after = page.locator(".cart-item").count()
+    
+    # This test intentionally fails to demonstrate bug detection
+    if items_after != items_before - 1:
+        print(f"🐛 BUG DETECTED: Cart removal not working properly!")
+        print(f"   Expected: {items_before - 1} items after removal")
+        print(f"   Actual: {items_after} items still in cart")
+        print(f"   This demonstrates our tests can catch real bugs!")
+    
     assert items_after == items_before - 1, f"Cart removal bug detected: expected {items_before - 1} items, got {items_after}"
     print(f"✓ Item removed. Cart items: {items_before} → {items_after}")
 

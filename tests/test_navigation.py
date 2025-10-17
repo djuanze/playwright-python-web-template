@@ -30,19 +30,19 @@ def test_page_has_content(page, base_url):
 
 def test_page_back_navigation(page, base_url):
     """Test browser back navigation"""
-    # First navigate to a page to create history
+    # Navigate to a page
     page.goto(base_url)
-    initial_url = page.url
     
-    # Navigate to another page to create history
-    page.goto(f"{base_url}/")  # Same page but creates history
+    # Create some history by navigating to a different URL
+    page.goto("data:text/html,<html><body><h1>Test Page</h1></body></html>")
+    page.wait_for_timeout(100)
     
-    # Now go back
+    # Go back to original page
     page.go_back()
-    page.wait_for_timeout(500)  # Brief wait for navigation
+    page.wait_for_timeout(500)
     
-    # Should go back to initial URL or at least not be blank
-    assert initial_url == page.url or page.url != "about:blank"
+    # Should be back at the original URL
+    assert base_url in page.url, f"Expected to be back at {base_url}, but got {page.url}"
 
 
 def test_page_reload(page, base_url):
