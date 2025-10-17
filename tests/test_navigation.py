@@ -41,8 +41,8 @@ def test_page_back_navigation(page, base_url):
     page.go_back()
     page.wait_for_timeout(500)  # Brief wait for navigation
     
-    # Should go back to initial URL
-    assert initial_url == page.url or "about:blank" not in page.url
+    # Should go back to initial URL or at least not be blank
+    assert initial_url == page.url or page.url != "about:blank"
 
 
 def test_page_reload(page, base_url):

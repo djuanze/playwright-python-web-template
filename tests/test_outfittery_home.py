@@ -16,7 +16,7 @@ def test_homepage_loads_successfully(page, outfittery_url):
     home.accept_cookies()
     
     # Verify page loaded
-    assert page.url.startswith(base_url), f"Expected URL to start with {base_url}"
+    assert page.url.startswith(outfittery_url), f"Expected URL to start with {outfittery_url}"
     print(f"✓ Homepage loaded: {page.url}")
 
 

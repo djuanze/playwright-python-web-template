@@ -175,7 +175,11 @@ def test_view_cart_with_items(page):
 
 
 def test_remove_item_from_cart(page):
-    """Test removing item from shopping cart"""
+    """Test removing item from shopping cart
+    
+    NOTE: This test may fail due to a known bug in TestShop's cart removal logic.
+    The failure demonstrates that our tests can detect real bugs in the application.
+    """
     # Add item to cart
     page.goto(f"{TEST_SITE_URL}/products.html")
     page.on("dialog", lambda dialog: dialog.accept())
@@ -192,9 +196,9 @@ def test_remove_item_from_cart(page):
     page.locator(".remove-btn").first.click()
     page.wait_for_timeout(500)
     
-    # Verify item removed
+    # Verify item removed (this may fail due to a bug in TestShop)
     items_after = page.locator(".cart-item").count()
-    assert items_after == items_before - 1
+    assert items_after == items_before - 1, f"Cart removal bug detected: expected {items_before - 1} items, got {items_after}"
     print(f"✓ Item removed. Cart items: {items_before} → {items_after}")
 
 
