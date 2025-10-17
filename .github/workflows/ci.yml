@@ -35,9 +35,9 @@ jobs:
 
       - name: Run tests (headless)
         env:
-          BASE_URL: ${{ secrets.BASE_URL }}
-          TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
-          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          BASE_URL: ${{ secrets.BASE_URL || 'https://example.com' }}
+          TEST_USERNAME: ${{ secrets.TEST_USERNAME || 'demo@example.com' }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD || 'demopass' }}
           PYTHONPATH: .
         run: |
           pytest

@@ -1,7 +1,14 @@
 """Demo test to see the browser in action - KEEPS BROWSER OPEN!"""
 
 import pytest
+import os
 from pages.outfittery_home_page import OutfitteryHomePage
+
+# Skip demo tests in CI since they require specific URLs
+pytestmark = pytest.mark.skipif(
+    os.getenv("CI") == "true", 
+    reason="Demo tests require specific URLs not available in CI"
+)
 
 
 def test_see_browser_in_action(page, base_url):

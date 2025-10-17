@@ -1,10 +1,18 @@
 """Tests for TestShop E-commerce Demo Site"""
 
 import pytest
+import os
+from playwright.sync_api import expect
 
 
 # Update BASE_URL to point to your local site
 TEST_SITE_URL = "file:///Users/reymartjuance/Documents/Myprofile/test-ecommerce-site"
+
+# Skip all tests in CI environment since TestShop files are not available
+pytestmark = pytest.mark.skipif(
+    os.getenv("CI") == "true", 
+    reason="TestShop files not available in CI environment"
+)
 
 
 @pytest.mark.smoke

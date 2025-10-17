@@ -1,9 +1,16 @@
 """Tests for TestShop BUGGY versions - These tests SHOULD FAIL to verify test validity"""
 
 import pytest
+import os
 
 # Point to BUGGY version
 BUGGY_SITE_URL = "file:///Users/reymartjuance/Documents/Myprofile/test-ecommerce-site/bugs"
+
+# Skip all tests in CI environment since TestShop files are not available
+pytestmark = pytest.mark.skipif(
+    os.getenv("CI") == "true", 
+    reason="TestShop files not available in CI environment"
+)
 
 
 @pytest.mark.bug_validation

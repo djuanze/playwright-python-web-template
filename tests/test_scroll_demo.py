@@ -1,7 +1,14 @@
 """Demo test to SEE the scrolling in action"""
 
 import pytest
+import os
 from pages.outfittery_home_page import OutfitteryHomePage
+
+# Skip scroll demo tests in CI since they require specific URLs
+pytestmark = pytest.mark.skipif(
+    os.getenv("CI") == "true", 
+    reason="Scroll demo tests require specific URLs not available in CI"
+)
 
 
 def test_see_scroll_slowly(page, base_url):
