@@ -3,13 +3,14 @@
 import pytest
 import os
 
-# Point to BUGGY version
+# Point to BUGGY version (Note: Buggy version not deployed to GitHub Pages)
+# These tests will be skipped in CI since buggy version is not publicly available
 BUGGY_SITE_URL = "file:///Users/reymartjuance/Documents/Myprofile/test-ecommerce-site/bugs"
 
-# Skip all tests in CI environment since TestShop files are not available
+# Skip bug validation tests in CI since buggy version is not publicly deployed
 pytestmark = pytest.mark.skipif(
     os.getenv("CI") == "true", 
-    reason="TestShop files not available in CI environment"
+    reason="Buggy version not publicly available - run locally for bug validation"
 )
 
 

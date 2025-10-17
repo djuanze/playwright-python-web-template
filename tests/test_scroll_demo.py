@@ -4,10 +4,10 @@ import pytest
 import os
 from pages.outfittery_home_page import OutfitteryHomePage
 
-# Skip scroll demo tests in CI since they require specific URLs
+# Skip scroll demo tests in CI since they're for visual demonstration only
 pytestmark = pytest.mark.skipif(
     os.getenv("CI") == "true", 
-    reason="Scroll demo tests require specific URLs not available in CI"
+    reason="Scroll demo tests are for visual demonstration - run locally with --headed"
 )
 
 
