@@ -5,9 +5,9 @@ from pages.outfittery_home_page import OutfitteryHomePage
 
 
 @pytest.mark.smoke
-def test_homepage_loads_successfully(page, base_url):
+def test_homepage_loads_successfully(page, outfittery_url):
     """Test that Outfittery homepage loads without errors"""
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     
     # Navigate to homepage
     home.navigate_to_home()
@@ -21,9 +21,9 @@ def test_homepage_loads_successfully(page, base_url):
 
 
 @pytest.mark.smoke
-def test_page_has_title(page, base_url):
+def test_page_has_title(page, outfittery_url):
     """Test that page has a proper title"""
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     home.navigate_to_home()
     home.accept_cookies()
     
@@ -34,9 +34,9 @@ def test_page_has_title(page, base_url):
 
 
 @pytest.mark.smoke
-def test_logo_is_visible(page, base_url):
+def test_logo_is_visible(page, outfittery_url):
     """Test that company logo is visible"""
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     home.navigate_to_home()
     home.accept_cookies()
     
@@ -45,9 +45,9 @@ def test_logo_is_visible(page, base_url):
 
 
 @pytest.mark.smoke
-def test_navigation_header_is_visible(page, base_url):
+def test_navigation_header_is_visible(page, outfittery_url):
     """Test that main navigation header is visible"""
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     home.navigate_to_home()
     home.accept_cookies()
     
@@ -55,9 +55,9 @@ def test_navigation_header_is_visible(page, base_url):
     print("✓ Navigation header is visible")
 
 
-def test_page_content_is_loaded(page, base_url):
+def test_page_content_is_loaded(page, outfittery_url):
     """Test that page has visible content"""
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     home.navigate_to_home()
     home.accept_cookies()
     
@@ -68,14 +68,14 @@ def test_page_content_is_loaded(page, base_url):
     print(f"✓ Page has {len(body_text)} characters of content")
 
 
-def test_page_has_no_console_errors(page, base_url):
+def test_page_has_no_console_errors(page, outfittery_url):
     """Test that page loads without major console errors"""
     errors = []
     
     # Listen for console messages
     page.on("console", lambda msg: errors.append(msg.text) if msg.type == "error" else None)
     
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     home.navigate_to_home()
     home.accept_cookies()
     
@@ -94,12 +94,12 @@ def test_page_has_no_console_errors(page, base_url):
 
 
 @pytest.mark.mobile
-def test_homepage_responsive_mobile(page, base_url):
+def test_homepage_responsive_mobile(page, outfittery_url):
     """Test that homepage works on mobile viewport"""
     # Set mobile viewport (iPhone 13)
     page.set_viewport_size({"width": 390, "height": 844})
     
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     home.navigate_to_home()
     home.accept_cookies()
     
@@ -109,12 +109,12 @@ def test_homepage_responsive_mobile(page, base_url):
 
 
 @pytest.mark.mobile
-def test_homepage_responsive_tablet(page, base_url):
+def test_homepage_responsive_tablet(page, outfittery_url):
     """Test that homepage works on tablet viewport"""
     # Set tablet viewport (iPad Air)
     page.set_viewport_size({"width": 820, "height": 1180})
     
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     home.navigate_to_home()
     home.accept_cookies()
     
@@ -123,9 +123,9 @@ def test_homepage_responsive_tablet(page, base_url):
     print("✓ Homepage works on tablet viewport (820x1180)")
 
 
-def test_scroll_to_footer(page, base_url):
+def test_scroll_to_footer(page, outfittery_url):
     """Test scrolling to page footer"""
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     home.navigate_to_home()
     home.accept_cookies()
     
@@ -138,9 +138,9 @@ def test_scroll_to_footer(page, base_url):
     print("✓ Successfully scrolled to footer")
 
 
-def test_page_language_attribute(page, base_url):
+def test_page_language_attribute(page, outfittery_url):
     """Test that page has proper language attribute"""
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     home.navigate_to_home()
     home.accept_cookies()
     
@@ -150,11 +150,11 @@ def test_page_language_attribute(page, base_url):
 
 
 @pytest.mark.slow
-def test_page_load_performance(page, base_url):
+def test_page_load_performance(page, outfittery_url):
     """Test that page loads within acceptable time"""
     import time
     
-    home = OutfitteryHomePage(page, base_url)
+    home = OutfitteryHomePage(page, outfittery_url)
     
     start_time = time.time()
     home.navigate_to_home()

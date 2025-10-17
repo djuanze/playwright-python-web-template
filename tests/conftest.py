@@ -65,6 +65,12 @@ def base_url():
 
 
 @pytest.fixture(scope="session")
+def outfittery_url():
+    """Provide Outfittery URL for specific tests"""
+    return "https://outfittery.com"
+
+
+@pytest.fixture(scope="session")
 def test_user():
     """Provide test user credentials"""
     return {
